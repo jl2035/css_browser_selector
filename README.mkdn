@@ -15,6 +15,17 @@ Identifies
 <br />enabled technology: JS (use in conjunction with &lt;html class="no-js"> for even more granular control)
 <br />language detection
 
+# ABOUT THIS FORK
+Internet Explorer 11 is the reason for this fork. Acording to this article http://www.nczonline.net/blog/2013/07/02/internet-explorer-11-dont-call-me-ie they will now try to disguise as gecko.
+
+Quote from the article: "It seems that Microsoft has gone out of their way to ensure that all existing isIE() code branches, whether in JavaScript or on the server, will return false for Internet Explorer 11. The optimistic view of this change is that Internet Explorer 11 finally supports enough web standards such that existing IE-specific behavior is no longer needed."
+
+Also Microsoft says this: "In general, you should avoid detecting specific browsers or browser versions. The assumptions underlying such tests tend to lead to false positive results when browsers are updated. Instead, detect features as you need them and use progressive enhancement to provide simplified experiences for browsers or devices that do not support the features you need. In rare cases, it may be necessary to uniquely identify IE11. Use the Trident token to do so." (http://msdn.microsoft.com/en-us/library/ie/bg182625%28v=vs.85%29)
+
+But as we all know in some cases we'll still need to address IE differently (be it IE11 or not). There are still features (like fonts for example) that IE handles differently. So I used this Trident token and the script now recognises IE 11 as IE.
+
+========================================================================
+
 Recent contributors to 0.5, 0.6:
 
 more detailed IE detection:
