@@ -38,10 +38,11 @@ function css_browser_selector(u)
 		dv='device_',
 		html=document.documentElement,
 		b=	[
-		
 			// browser
-			(!(/opera|webtv/i.test(ua))&&!(/msie\s(\d+)/.test(ua))&&(/trident/.test(ua)))?'ie11':
-			(!(/opera|webtv/i.test(ua))&&/msie\s(\d+)/.test(ua))?('ie ie'+(/trident\/4\.0/.test(ua) ? '8' : RegExp.$1))
+		(!(/opera|webtv/i.test(ua))&&/msie\s(\d+)/.test(ua))?('ie ie'+(/trident\/7\.0/.test(ua) ? '11' : RegExp.$1))
+            :is (!(/opera|webtv/i.test(ua))&&/msie\s(\d+)/.test(ua))?('ie ie'+(/trident\/6\.0/.test(ua) ? '10' : RegExp.$1))
+            :is (!(/opera|webtv/i.test(ua))&&/msie\s(\d+)/.test(ua))?('ie ie'+(/trident\/5\.0/.test(ua) ? '9' : RegExp.$1))
+            :is (!(/opera|webtv/i.test(ua))&&/msie\s(\d+)/.test(ua))?('ie ie'+(/trident\/4\.0/.test(ua) ? '8' : RegExp.$1))
 			:is('firefox/')?g+ " " + f+(/firefox\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua)?' '+f+RegExp.$2 + ' '+f+RegExp.$2+"_"+RegExp.$4:'')	
 			:is('gecko/')?g
 			:is('opera')?o+(/version\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua)?' '+o+RegExp.$2 + ' '+o+RegExp.$2+"_"+RegExp.$4 : (/opera(\s|\/)(\d+)\.(\d+)/.test(ua)?' '+o+RegExp.$2+" "+o+RegExp.$2+"_"+RegExp.$3:''))
@@ -108,7 +109,8 @@ function css_browser_selector(u)
 			:is('playbook')?'playbook'
 			:is('mac')?'mac'+ (/mac os x ((\d+)[.|_](\d+))/.test(ua) ?    ( ' mac' + (RegExp.$2)  +  ' mac' + (RegExp.$1).replace('.',"_")  )     : '' )
 			:is('win')?'win'+
-					(is('windows nt 6.2')?' win8'
+					(is('windows nt 6.3')?' win8.1'
+					:is('windows nt 6.2')?' win8'
 					:is('windows nt 6.1')?' win7'
 					:is('windows nt 6.0')?' vista'
 					:is('windows nt 5.2') || is('windows nt 5.1') ? ' win_xp' 
